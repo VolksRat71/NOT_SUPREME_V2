@@ -1,4 +1,4 @@
-import PropTypes from 'prop-types';
+/* eslint react/prop-types: 0 */
 
 export default function Page({ children }) {
   return (
@@ -8,7 +8,3 @@ export default function Page({ children }) {
     </>
   );
 }
-
-Page.propTypes = {
-  children: PropTypes.arrayOf(PropTypes.node),
-};
