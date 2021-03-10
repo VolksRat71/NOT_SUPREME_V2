@@ -1,7 +1,7 @@
 export default function OrderPage() {
   return (
     <>
-      <p>Hello</p>
+      <p>OrderPage</p>
     </>
   );
 }

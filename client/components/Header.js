@@ -3,7 +3,7 @@ import styled from 'styled-components';
 import Nav from './Nav';
 
 const Logo = styled.h1`
-  background: red;
+  background: var(--red);
   margin-left: 2rem;
   position: relative;
   z-index: 2;
@@ -18,7 +18,7 @@ const Logo = styled.h1`
 
 const HeaderStyles = styled.header`
   .bar {
-    border-bottom: 10px solid var(--black, black);
+    border-bottom: 10px solid var(--black);
     display: grid;
     grid-template-columns: auto 1fr;
     justify-content: space-between;
@@ -26,7 +26,7 @@ const HeaderStyles = styled.header`
   }
   .sub-bar {
     display: grid;
-    border-bottom: 1px solid var(--black, black);
+    border-bottom: 1px solid var(--black);
     grid-template-columns: auto 1fr;
   }
 `;
