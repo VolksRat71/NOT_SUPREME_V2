@@ -16,18 +16,33 @@ const Logo = styled.h1`
   }
 `;
 
+const HeaderStyles = styled.header`
+  .bar {
+    border-bottom: 10px solid var(--black, black);
+    display: grid;
+    grid-template-columns: auto 1fr;
+    justify-content: space-between;
+    align-items: center;
+  }
+  .sub-bar {
+    display: grid;
+    border-bottom: 1px solid var(--black, black);
+    grid-template-columns: auto 1fr;
+  }
+`;
+
 export default function Header() {
   return (
-    <header>
+    <HeaderStyles>
       <div className="bar">
         <Logo>
           <Link href="/">NOT SUPREME</Link>
         </Logo>
-        <Nav />
       </div>
       <div className="sub-bar">
         <p>Search</p>
       </div>
-    </header>
+      <Nav />
+    </HeaderStyles>
   );
 }
