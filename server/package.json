@@ -5,6 +5,8 @@
   "author": "Wes Bos",
   "license": "MIT",
   "scripts": {
+    "//": "TODO: Change start when ready",
+    "start": "npm run dev",
     "dev": "keystone-next",
     "seed-data": "keystone-next --seed-data"
   },
