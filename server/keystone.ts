@@ -1,5 +1,6 @@
 import { config, createSchema } from '@keystone-next/keystone/schema';
-import { User } from './schemas/User';
+import { createAuth } from '@keystone-next/auth';
+import { User, Product, ProductImage } from './schemas';
 import 'dotenv/config';
 
 const databaseURL =
@@ -10,25 +11,39 @@ const sessionConfig = {
   secret: process.env.COOKIE_SECRET,
 };
 
-export default config({
-  server: {
-    cors: {
-      origin: [process.env.FRONTEND_URL],
-      credentials: true,
-    },
+const { withAuth } = createAuth({
+  listKey: 'User',
+  identityField: 'email',
+  secretField: 'password',
+  initFirstItem: {
+    fields: ['name', 'email', 'password'],
+    // TODO: Add initial roles
   },
-  db: {
-    adapter: 'mongoose',
-    url: databaseURL,
-    // TODO: add data seeding here
-  },
-  lists: createSchema({
-    // TODO: Schema items go here
-    User,
-  }),
-  ui: {
-    // TODO: change this for roles
-    isAccessAllowed: () => true,
-  },
-  // TODO: add session values here
 });
+
+export default withAuth(
+  config({
+    server: {
+      cors: {
+        origin: [process.env.FRONTEND_URL],
+        credentials: true,
+      },
+    },
+    db: {
+      adapter: 'mongoose',
+      url: databaseURL,
+      // TODO: add data seeding here
+    },
+    lists: createSchema({
+      // TODO: Schema items go here
+      User,
+      Product,
+      ProductImage,
+    }),
+    ui: {
+      // TODO: change this for roles
+      isAccessAllowed: () => true,
+    },
+    // TODO: add session values here
+  })
+);
