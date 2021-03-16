@@ -16,5 +16,13 @@
   "editor.codeActionsOnSave": {
     "source.fixAll": true
   },
-  "prettier.disableLanguages": ["javascript", "javascriptreact", "typescript"]
+  "prettier.disableLanguages": [
+    "javascript",
+    "javascriptreact",
+    "typescript"
+  ],
+  "cSpell.ignoreWords": [
+    "cloudinary",
+    "image"
+  ]
 }
